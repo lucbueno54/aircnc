@@ -20,13 +20,7 @@ module.exports = {
         const {filename} = req.file;
         const {company,techs,price} = req.body;
         const {user_id} = req.headers;
-
-        const user = await User.findById(user_id);
-
-        if (!user) {
-            res.status(404);
-        }
-        
+               
         const spot  = await Spot.create({
             user : user_id,
             thumbnail:filename,
